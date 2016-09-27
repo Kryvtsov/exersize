@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Домашки по желтой книге</title>
+    <meta charset="UTF-8">
+   
+  </head>
+
+  <body>
+  <h4>Упражнение 1. "Минимальное из 2"</h4>
+      <script>
+      var min = function (x, y) {
+          if (x < y) 
+              return x;
+          else if (x>y)
+              return y;
+          else 
+              return "числа равны"
+                  
+      }
+      document.write ("Минимальное число:" + min (0,-10));
+        
+      </script>
+      <br>
+        <h4>Упражнение 2. "Четность(хитрая)"</h4>
+      <script>
+      var isEven = function (x) {
+          if (x==0)
+          return true;
+          else if (x==1)
+              return false;
+          else if (x<0)
+              return isEven (-x)
+          else 
+              return isEven (x-2)
+              
+          }
+          
+       document.write (isEven (-1));
+          
+      
+      </script>
+       <br>
+        <h4>Упражнение 3. "Считаем бобы"</h4>
+      <script>
+     
+       var countChar = function (string, char) {
+          var counted = 0;
+          for (var i=0; i<string.length; i++) {
+              
+              if (string.charAt(i) == char)
+                  counted +=1;}
+              return counted ;
+                }
+           
+           var countBs = function (Bs) {
+               return countChar (Bs, "B")
+               
+         
+          }
+       
+      
+       document.write (countChar ("kakkerlak", "k"));
+          
+           document.write (countBs ("BBBC"));
+          
+      
+      </script>
+      
+         <br>
+        <h4>Упражнение 3.1. "Сумма диапазона"</h4>
+      <script>
+     
+      range = function (b, ende, step) {
+          if (step==null) step=1;
+         var array = [];
+          if (step>0) {
+                  
+          for (var i=b; i<=ende; i=i+step) {
+             array.push (i);       
+               }
+          }
+          else
+          {
+                     
+         
+           for (var i=b; i>=ende; i=i+step) {
+             array.push (i);       
+               }
+         return array;
+          
+          }
+    }
+                sum = function (array) {
+              var sumarray = 0;
+        for (k=0; k<array.length; k++){
+           sumarray= array [k]+ sumarray;
+            }
+            return sumarray;
+                }
+        
+       document.write (sum(range(5,2, -1))); 
+          
+     document.write(range(5,2, -1));
+          
+    
+      </script>
+      
+     <h4>Упражнение 3.2. "Обращаем массив вспять"</h4>
+      
+      <script>
+        reverseArray = function (array){
+            var output = [];
+            for (var l=array.length-1; l >=0; l--) {
+                output.push (array [l]);                
+            }
+            return output;
+        }
+        document.write (reverseArray ([ "A" , "B" , "C", 'd']));
+      </script>
+           </br>
+      </br>
+      <script>
+        reverseArrayInPlace = function (array){
+            for (var i=0; i<Math.floor (array.length/2); i++) {
+              var old = array [i];
+                array [i] = array [array.length - 1 - i];
+                array [array.length - 1 - i] = old;
+                }
+            return array;
+             }
+  var arrayValue = [1, 2, 3, 4, 5,6];
+ reverseArrayInPlace(arrayValue);
+        
+        document.write (arrayValue); 
+      </script>
+      
+      <h4>Упражнение 3.3. "Список"</h4>
+    <script>
+       arrayToList = function (array) {
+            var list = null;
+            for (var i=array.length-1; i >=0; i--) {
+                list = {value: array [i], rest: list   };
+                           
+            }
+            return list ;
+        }
+document.write ((arrayToList ([10, 20])));
+
+    </script>
+
+<script>
+        function listToArray(list) {
+  var array = [];
+  for (var node = list; node; node = node.rest)
+    array.push(node.value);
+  return array;
+}
+
+
+document.write (listToArray(arrayToList([10, 20, 30])))
+</script>
+      
+  </body>
+</html>
